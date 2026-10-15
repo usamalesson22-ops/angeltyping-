@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Track Institute | Pro Typing Master</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⌨️</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Navigation Bar (Apple Style Translucent) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+            <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">IT TRACK</span>
+          <span class="brand-badge">INSTITUTE</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-pill active" data-tab="test">Speed Test</button>
+        <button class="nav-pill" data-tab="lessons">Academy Lessons</button>
+        <button class="nav-pill" data-tab="history">My Records</button>
+        <button class="nav-pill" data-tab="guide">Typing Guide</button>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Audio Effects Switch -->
+        <button id="soundToggle" class="icon-btn" title="Toggle Mechanical Keyboard Audio" aria-label="Audio switch">
+          <svg id="soundOnIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg id="soundOffIcon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <span class="sound-label">Sound</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Theme switch">
+          <svg id="sunIcon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Student Profile Pill -->
+        <div class="student-pill" id="studentBadge">
+          <span class="student-avatar">IT</span>
+          <span class="student-name" id="currentStudentDisplay">Student</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-container">
+
+    <!-- HERO SECTION (Apple style header with gradient & subtitle) -->
+    <section class="hero-section">
+      <div class="hero-chip">
+        <span class="pulse-dot"></span> Next-Gen Typing Experience for IT Students
+      </div>
+      <h1 class="hero-title">Master the Art of Speed.</h1>
+      <p class="hero-desc">Designed exclusively for <strong>IT Track Institute</strong> students. Practice touch typing, programming syntax, and professional speed tests with real-time biometric feedback.</p>
+    </section>
+
+    <!-- SECTION: TYPING ARENA -->
+    <section id="arenaSection" class="content-section active">
+      <!-- Control Bar (Apple segmented pills) -->
+      <div class="controls-panel">
+        <div class="segmented-group">
+          <span class="segment-label">Mode</span>
+          <div class="segmented-control" id="modeSelector">
+            <button class="seg-btn active" data-mode="time">Time</button>
+            <button class="seg-btn" data-mode="words">Words</button>
+            <button class="seg-btn" data-mode="quote">Quotes</button>
+            <button class="seg-btn" data-mode="code">Code</button>
+          </div>
+        </div>
+
+        <div class="segmented-group" id="subOptionsGroup">
+          <span class="segment-label" id="subOptionLabel">Duration</span>
+          <div class="segmented-control" id="durationSelector">
+            <button class="seg-btn" data-val="15">15s</button>
+            <button class="seg-btn active" data-val="30">30s</button>
+            <button class="seg-btn" data-val="60">60s</button>
+            <button class="seg-btn" data-val="120">120s</button>
+          </div>
+        </div>
+
+        <div class="segmented-group">
+          <span class="segment-label">Keyboard</span>
+          <button id="toggleKeyboardBtn" class="pill-toggle active" title="Show or Hide Virtual Keyboard">
+            <span class="toggle-indicator"></span> Virtual Keys
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Apple Glass Metric Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-name">WPM</span>
+            <span class="metric-sub">Words / Min</span>
+          </div>
+          <div class="metric-value" id="liveWpm">0</div>
+          <div class="metric-bar"><div class="metric-fill" id="wpmFill" style="width: 0%"></div></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-name">ACCURACY</span>
+            <span class="metric-sub">Precision</span>
+          </div>
+          <div class="metric-value accent-green" id="liveAccuracy">100%</div>
+          <div class="metric-bar"><div class="metric-fill bg-green" id="accFill" style="width: 100%"></div></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-name" id="timerLabel">TIME LEFT</span>
+            <span class="metric-sub" id="timerSub">Seconds</span>
+          </div>
+          <div class="metric-value accent-blue" id="liveTimer">30s</div>
+          <div class="metric-bar"><div class="metric-fill bg-blue" id="timerFill" style="width: 100%"></div></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-name">ERRORS</span>
+            <span class="metric-sub">Keystrokes</span>
+          </div>
+          <div class="metric-value accent-red" id="liveErrors">0</div>
+          <div class="metric-bar"><div class="metric-fill bg-red" id="errorFill" style="width: 0%"></div></div>
+        </div>
+      </div>
+
+      <!-- Typing Display Box -->
+      <div class="typing-stage" id="typingStage">
+        <!-- Hidden input for mobile & focus management -->
+        <input type="text" id="typingInput" class="hidden-input" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+        <div class="stage-overlay" id="stageOverlay">
+          <div class="overlay-content">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path>
+            </svg>
+            <span>Click or press any key to focus</span>
+          </div>
+        </div>
+
+        <!-- Words Stream Container -->
+        <div class="words-container" id="wordsContainer">
+          <!-- Dynamically populated letters & words -->
+        </div>
+
+        <!-- Restart Pill Button -->
+        <div class="stage-actions">
+          <button id="restartBtn" class="apple-action-btn" title="Restart test (Tab + Enter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+            <span>Restart Session</span>
+            <kbd class="shortcut-pill">Tab</kbd>
+          </button>
+        </div>
+      </div>
+
+      <!-- VIRTUAL APPLE MAGIC KEYBOARD VISUALIZER -->
+      <div class="keyboard-wrapper" id="keyboardWrapper">
+        <div class="keyboard-header">
+          <span class="kh-title">Apple Pro Magic Visualizer</span>
+          <div class="finger-legends">
+            <span class="legend-item"><span class="f-dot f-pinky"></span> Pinky</span>
+            <span class="legend-item"><span class="f-dot f-ring"></span> Ring</span>
+            <span class="legend-item"><span class="f-dot f-middle"></span> Middle</span>
+            <span class="legend-item"><span class="f-dot f-index"></span> Index</span>
+            <span class="legend-item"><span class="f-dot f-thumb"></span> Thumb</span>
+          </div>
+        </div>
+
+        <div class="magic-keyboard" id="magicKeyboard">
+          <!-- Row 1 -->
+          <div class="k-row">
+            <div class="key f-pinky" data-key="`" data-shift="~"><span class="main">`</span><span class="sub">~</span></div>
+            <div class="key f-pinky" data-key="1" data-shift="!"><span class="main">1</span><span class="sub">!</span></div>
+            <div class="key f-ring" data-key="2" data-shift="@"><span class="main">2</span><span class="sub">@</span></div>
+            <div class="key f-middle" data-key="3" data-shift="#"><span class="main">3</span><span class="sub">#</span></div>
+            <div class="key f-index" data-key="4" data-shift="$"><span class="main">4</span><span class="sub">$</span></div>
+            <div class="key f-index" data-key="5" data-shift="%"><span class="main">5</span><span class="sub">%</span></div>
+            <div class="key f-index" data-key="6" data-shift="^"><span class="main">6</span><span class="sub">^</span></div>
+            <div class="key f-index" data-key="7" data-shift="&"><span class="main">7</span><span class="sub">&amp;</span></div>
+            <div class="key f-middle" data-key="8" data-shift="*"><span class="main">8</span><span class="sub">*</span></div>
+            <div class="key f-ring" data-key="9" data-shift="("><span class="main">9</span><span class="sub">(</span></div>
+            <div class="key f-pinky" data-key="0" data-shift=")"><span class="main">0</span><span class="sub">)</span></div>
+            <div class="key f-pinky" data-key="-" data-shift="_"><span class="main">-</span><span class="sub">_</span></div>
+            <div class="key f-pinky" data-key="=" data-shift="+"><span class="main">=</span><span class="sub">+</span></div>
+            <div class="key key-delete f-pinky" data-key="Backspace"><span class="main">delete</span></div>
+          </div>
+          <!-- Row 2 -->
+          <div class="k-row">
+            <div class="key key-tab f-pinky" data-key="Tab"><span class="main">tab</span></div>
+            <div class="key f-pinky" data-key="q"><span class="main">Q</span></div>
+            <div class="key f-ring" data-key="w"><span class="main">W</span></div>
+            <div class="key f-middle" data-key="e"><span class="main">E</span></div>
+            <div class="key f-index" data-key="r"><span class="main">R</span></div>
+            <div class="key f-index" data-key="t"><span class="main">T</span></div>
+            <div class="key f-index" data-key="y"><span class="main">Y</span></div>
+            <div class="key f-index" data-key="u"><span class="main">U</span></div>
+            <div class="key f-middle" data-key="i"><span class="main">I</span></div>
+            <div class="key f-ring" data-key="o"><span class="main">O</span></div>
+            <div class="key f-pinky" data-key="p"><span class="main">P</span></div>
+            <div class="key f-pinky" data-key="[" data-shift="{"><span class="main">[</span><span class="sub">{</span></div>
+            <div class="key f-pinky" data-key="]" data-shift="}"><span class="main">]</span><span class="sub">}</span></div>
+            <div class="key f-pinky" data-key="\" data-shift="|"><span class="main">\</span><span class="sub">|</span></div>
+          </div>
+          <!-- Row 3 (Home Row) -->
+          <div class="k-row">
+            <div class="key key-caps f-pinky" data-key="CapsLock"><span class="main">caps lock</span></div>
+            <div class="key f-pinky" data-key="a"><span class="main">A</span></div>
+            <div class="key f-ring" data-key="s"><span class="main">S</span></div>
+            <div class="key f-middle" data-key="d"><span class="main">D</span></div>
+            <div class="key f-index home-bump" data-key="f"><span class="main">F</span><span class="bump"></span></div>
+            <div class="key f-index" data-key="g"><span class="main">G</span></div>
+            <div class="key f-index" data-key="h"><span class="main">H</span></div>
+            <div class="key f-index home-bump" data-key="j"><span class="main">J</span><span class="bump"></span></div>
+            <div class="key f-middle" data-key="k"><span class="main">K</span></div>
+            <div class="key f-ring" data-key="l"><span class="main">L</span></div>
+            <div class="key f-pinky" data-key=";" data-shift=":"><span class="main">;</span><span class="sub">:</span></div>
+            <div class="key f-pinky" data-key="'" data-shift="&quot;"><span class="main">'</span><span class="sub">&quot;</span></div>
+            <div class="key key-return f-pinky" data-key="Enter"><span class="main">return</span></div>
+          </div>
+          <!-- Row 4 -->
+          <div class="k-row">
+            <div class="key key-shift-l f-pinky" data-key="Shift"><span class="main">shift</span></div>
+            <div class="key f-pinky" data-key="z"><span class="main">Z</span></div>
+            <div class="key f-ring" data-key="x"><span class="main">X</span></div>
+            <div class="key f-middle" data-key="c"><span class="main">C</span></div>
+            <div class="key f-index" data-key="v"><span class="main">V</span></div>
+            <div class="key f-index" data-key="b"><span class="main">B</span></div>
+            <div class="key f-index" data-key="n"><span class="main">N</span></div>
+            <div class="key f-index" data-key="m"><span class="main">M</span></div>
+            <div class="key f-middle" data-key="," data-shift="&lt;"><span class="main">,</span><span class="sub">&lt;</span></div>
+            <div class="key f-ring" data-key="." data-shift="&gt;"><span class="main">.</span><span class="sub">&gt;</span></div>
+            <div class="key f-pinky" data-key="/" data-shift="?"><span class="main">/</span><span class="sub">?</span></div>
+            <div class="key key-shift-r f-pinky" data-key="Shift"><span class="main">shift</span></div>
+          </div>
+          <!-- Row 5 -->
+          <div class="k-row">
+            <div class="key key-fn"><span class="main">fn</span></div>
+            <div class="key key-ctrl"><span class="main">control</span></div>
+            <div class="key key-opt"><span class="main">option</span></div>
+            <div class="key key-cmd"><span class="main">⌘ command</span></div>
+            <div class="key key-space f-thumb" data-key=" "><span class="main">space</span></div>
+            <div class="key key-cmd"><span class="main">⌘ command</span></div>
+            <div class="key key-opt"><span class="main">option</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ACADEMY LESSONS -->
+    <section id="lessonsSection" class="content-section">
+      <div class="section-heading">
+        <span class="section-tag">CURRICULUM</span>
+        <h2>Structured Typing Lessons</h2>
+        <p>Step-by-step training from beginner home row keys to professional software programming code.</p>
+      </div>
+
+      <div class="lessons-grid" id="lessonsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- SECTION: RECORDS & LEADERBOARD -->
+    <section id="historySection" class="content-section">
+      <div class="section-heading">
+        <span class="section-tag">PERFORMANCE</span>
+        <h2>Student Hall of Fame & Personal Best</h2>
+        <p>Track your typing journey, monitor your accuracy trends, and see your recent test scores.</p>
+      </div>
+
+      <div class="records-container">
+        <div class="records-summary-card">
+          <div class="record-stat">
+            <span class="stat-num" id="personalBestWpm">0</span>
+            <span class="stat-name">Peak WPM</span>
+          </div>
+          <div class="record-stat">
+            <span class="stat-num" id="avgAccuracy">0%</span>
+            <span class="stat-name">Average Accuracy</span>
+          </div>
+          <div class="record-stat">
+            <span class="stat-num" id="testsCompleted">0</span>
+            <span class="stat-name">Completed Tests</span>
+          </div>
+          <div class="record-stat">
+            <span class="stat-num" id="studentRank">Beginner</span>
+            <span class="stat-name">Current Rank</span>
+          </div>
+        </div>
+
+        <div class="records-table-card">
+          <div class="table-header">
+            <h3>Recent Test Sessions</h3>
+            <button id="clearRecordsBtn" class="text-btn">Clear History</button>
+          </div>
+          <div class="table-wrapper">
+            <table class="apple-table" id="recordsTable">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Student Name</th>
+                  <th>Mode</th>
+                  <th>WPM</th>
+                  <th>Accuracy</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recordsTbody">
+                <tr>
+                  <td colspan="6" class="empty-state">No tests recorded yet. Complete a test to see your history!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TOUCH TYPING GUIDE -->
+    <section id="guideSection" class="content-section">
+      <div class="section-heading">
+        <span class="section-tag">BEST PRACTICES</span>
+        <h2>Apple Ergonomics & Touch Typing Guide</h2>
+        <p>Professional tips from IT Track Institute instructors to reach 100+ WPM without eye fatigue.</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+          </div>
+          <h3>The Home Row Anchor</h3>
+          <p>Always rest your fingers gently on the home keys: <strong>ASDF</strong> (left hand) and <strong>JKL;</strong> (right hand). Feel the tactile bumps on <strong>F</strong> and <strong>J</strong> with your index fingers without looking down.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <h3>Never Look at the Keyboard</h3>
+          <p>Train your brain's muscle memory. Looking at keys creates a mental bottleneck. Even if you make mistakes, keep your gaze fixed on the screen. Speed will naturally follow accuracy.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h3>Accuracy Before Velocity</h3>
+          <p>Typing fast with mistakes slows you down due to backspacing. Strive for <strong>98%+ accuracy</strong> first. Once your rhythm is clean and consistent, your WPM will rapidly compound.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3>Ergonomic Posture</h3>
+          <p>Sit straight with both feet flat on the floor. Keep your wrists hovering slightly above the table or rest gently on a cushion. Avoid twisting or anchoring your wrists at sharp angles.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RESULT MODAL (Apple Style Translucent Sheet) -->
+  <div class="modal-backdrop" id="resultsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-badge">TEST COMPLETE</div>
+        <button class="modal-close" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="result-hero">
+        <div class="result-big-wpm">
+          <span class="wpm-number" id="resultWpm">0</span>
+          <span class="wpm-unit">WPM</span>
+        </div>
+        <div class="result-rank-pill" id="resultRankPill">Master Typist</div>
+      </div>
+
+      <div class="modal-stats-grid">
+        <div class="sub-stat">
+          <span class="ss-label">Accuracy</span>
+          <span class="ss-value text-green" id="resultAccuracy">0%</span>
+        </div>
+        <div class="sub-stat">
+          <span class="ss-label">Raw Speed</span>
+          <span class="ss-value" id="resultRawWpm">0 WPM</span>
+        </div>
+        <div class="sub-stat">
+          <span class="ss-label">Keystrokes</span>
+          <span class="ss-value" id="resultKeystrokes">0 / 0</span>
+        </div>
+        <div class="sub-stat">
+          <span class="ss-label">Consistency</span>
+          <span class="ss-value" id="resultConsistency">96%</span>
+        </div>
+      </div>
+
+      <div class="student-certificate-action">
+        <div class="name-input-group">
+          <label for="studentNameInput">Student Name for Certificate:</label>
+          <input type="text" id="studentNameInput" placeholder="Enter student full name" value="IT Track Student">
+        </div>
+        <div class="modal-actions-row">
+          <button id="getCertificateBtn" class="apple-btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Generate Official Certificate
+          </button>
+          <button id="modalRestartBtn" class="apple-btn-secondary">
+            Practice Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE PRINT MODAL -->
+  <div class="modal-backdrop" id="certificateModal">
+    <div class="modal-card cert-card-wrapper">
+      <button class="modal-close" id="closeCertBtn">&times;</button>
+      
+      <!-- Printable Certificate Template -->
+      <div class="certificate-sheet" id="certificateSheet">
+        <div class="cert-border-outer">
+          <div class="cert-border-inner">
+            <div class="cert-watermark">IT TRACK</div>
+            
+            <div class="cert-header">
+              <div class="cert-logo-box">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+                  <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"></path>
+                </svg>
+              </div>
+              <h2 class="cert-institute-title">IT TRACK INSTITUTE</h2>
+              <p class="cert-subtitle">Department of Computer Science & Advanced IT Skills</p>
+            </div>
+
+            <div class="cert-body">
+              <p class="cert-declaration">THIS IS TO CERTIFY THAT</p>
+              <h1 class="cert-recipient" id="certStudentName">Alex Morgan</h1>
+              <p class="cert-statement">has demonstrated exceptional touch typing proficiency and precision in the official IT Track Pro Speed Assessment, achieving:</p>
+
+              <div class="cert-metrics-row">
+                <div class="cert-stat-badge">
+                  <span class="cs-num" id="certWpm">72</span>
+                  <span class="cs-lbl">WPM SPEED</span>
+                </div>
+                <div class="cert-stat-badge">
+                  <span class="cs-num" id="certAccuracy">99%</span>
+                  <span class="cs-lbl">ACCURACY</span>
+                </div>
+                <div class="cert-stat-badge">
+                  <span class="cs-num" id="certGrade">A+ MASTER</span>
+                  <span class="cs-lbl">PROFICIENCY GRADE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-footer">
+              <div class="cert-signature">
+                <div class="sig-line">Director of Training</div>
+                <span class="sig-title">IT Track Institute</span>
+              </div>
+              <div class="cert-seal">
+                <div class="seal-inner">
+                  <span>★ VERIFIED ★</span>
+                  <strong>IT TRACK</strong>
+                  <span id="certDateDisplay">OCT 2026</span>
+                </div>
+              </div>
+              <div class="cert-signature">
+                <div class="sig-line">Assessment Officer</div>
+                <span class="sig-title">Master Examiner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-modal-actions">
+        <button id="printCertBtn" class="apple-btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Print / Download Certificate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <span>© 2026 IT Track Institute. All Rights Reserved.</span>
+        <span class="dot-separator">•</span>
+        <span>Engineered with Precision & Apple-inspired Human Interface Design.</span>
+      </div>
+      <div class="footer-right">
+        <span class="version-tag">IT Track Speed Engine v3.4</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
